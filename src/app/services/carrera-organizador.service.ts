@@ -10,7 +10,7 @@ import { OrganizadorCarrera } from '../models/organizadorCarrera';
 
 export class OrganizadorCarreraService {
 
-  url = 'http://localhost:4000/api/carreras/';
+  url = `${process.env['URL_BACK']}/api/carreras/`;
 
   constructor(private http: HttpClient) { }
 

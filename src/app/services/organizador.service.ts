@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class OrganizadorService {
 
-  url = 'http://localhost:4000/api/carreras/';
+  url = `${process.env['URL_BACK']}/api/carreras/`;
+
 
   constructor(private http: HttpClient) { }
 
