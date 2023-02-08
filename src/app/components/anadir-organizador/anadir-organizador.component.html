@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">A&ntilde;adir Organizadores</span>
+                    <form [formGroup]="organizadoresForm" (ngSubmit)="anadirOrganizadores()">
+                      <table *ngIf="listOrganizadores.length >0" class="table table-striped table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Apellidos</th>
+                              <th scope="col">DNI</th>
+                              <th scope="col">T&eacute;lefono</th>
+                              <th scope="col">Vehiculo propio</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let organizador of listOrganizadores">
+                              <td>{{organizador.nombre}}</td>
+                              <td>{{organizador.apellidos}}</td>
+                              <td>{{organizador.dni}}</td>
+                              <td>{{organizador.telefono}}</td>
+                              <td>{{organizador.vehiculo}}</td>
+                              <td>
+                                  <input type="checkbox" value={{organizador._id}} (change)="onCheckboxChange($event)" formControlName="asignado"  id="asignado" />
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <h5 *ngIf="listOrganizadores.length == 0" style="text-align: start; margin-top: 10px;">No hay organizadores</h5>
+                        <div class="mb-3">
+                          <button type="submit" class="btn btn-success btn-lg float-end" >A&ntilde;adir Organizadores</button>
+                          <button routerLink="/listar-organizador/{{this.id}}" type="submit" class="btn btn-secondary btn-lg float-start" >Volver</button>
+                         </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

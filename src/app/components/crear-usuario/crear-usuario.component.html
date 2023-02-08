@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <span class="titulo">{{titulo | uppercase}}</span>
+                    </div>
+                    <form class="mt-3" [formGroup]="usuarioForm" (ngSubmit)="crearUsuarios()" >
+                        <div class="mb-3">
+                            <label>Nombre</label>
+                            <input type="text" formControlName="nombre" class="form-control" id="nombre">
+                            <div class="class text-danger" *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched">
+                                <span>El nombre es <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Apellidos</label>
+                            <input type="text" formControlName="apellidos" class="form-control" id="apellidos">
+                            <div class="class text-danger" *ngIf="usuarioForm.get('apellidos')?.hasError('required') && usuarioForm.get('apellidos')?.touched">
+                                <span>Los apellidos son <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label >Ciudad</label>
+                            <input type="text" formControlName="ciudad" class="form-control" id="ciudad">
+                        </div>
+                        <div class="mb-3">
+                            <label>Telefono</label>
+                            <input type="text" formControlName="telefono" class="form-control" id="tlf">
+                            <div class="class text-danger" *ngIf="usuarioForm.get('telefono')?.hasError('required') && usuarioForm.get('telefono')?.touched">
+                                <span>El Telefono es <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="usuarioForm.invalid">Crear</button>
+                            <button routerLink="" type="submit" class="btn btn-secondary btn-lg float-start" >Volver</button>
+                        </div>
+                    </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

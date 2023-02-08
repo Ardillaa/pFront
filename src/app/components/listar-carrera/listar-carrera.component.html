@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 ">
+      <div class="card head"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">PROXIMAS CARRERAS</span>
+                    <div class="card-body text-center">
+                      <button class="btn btn-secondary btn-lg" routerLink="/crear-carrera">Crear Carrera</button>
+                      <button class="btn btn-secondary btn-lg" routerLink="/crear-organizador">Crear Organizador</button>
+                    <table *ngIf="listCarreras.length >0" class="table table-striped table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Carrera</th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let carrera of listCarreras">
+                            <td>{{carrera.nombre}}</td>
+                            <td>{{carrera.ciudad}}</td>
+                            <td>{{carrera.fecha  | date:'longDate'}}</td>
+                            <td><i [routerLink]="['/listar-organizador',carrera._id]" class="fas fa-sharp fa-solid fa-eye"></i>
+                                <i [routerLink]="['/editar-carrera',carrera._id]" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                                <i (click)="deleteCarrera(carrera._id)" class="fas fa-solid fa-trash text-danger"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 *ngIf="listCarreras.length == 0" style="text-align: start; margin-top: 10px;">No hay carreras</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

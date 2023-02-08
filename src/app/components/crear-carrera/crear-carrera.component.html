@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <span class="titulo">{{titulo | uppercase}}</span>
+                    </div>
+                    <form class="mt-3" [formGroup]="carreraForm" (ngSubmit)="crearCarrera()" >
+                        <div class="mb-3">
+                            <label>Nombre</label>
+                            <input type="text" formControlName="nombre" class="form-control" id="nombre">
+                            <div class="class text-danger" *ngIf="carreraForm.get('nombre')?.hasError('required') && carreraForm.get('nombre')?.touched">
+                                <span>El nombre es <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label >Ciudad</label>
+                            <input type="text" formControlName="ciudad" class="form-control" id="ciudad">
+                            <div class="class text-danger" *ngIf="carreraForm.get('ciudad')?.hasError('required') && carreraForm.get('ciudad')?.touched">
+                                <span>La ciudad es <strong>obligaria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Lugar de Inicio</label>
+                            <input type="text" formControlName="cinicio" class="form-control" id="cinicio">
+                        </div>
+                        <div class="mb-3">
+                            <label>Fecha</label>
+                            <input type="date" formControlName="fecha" class="form-control" id="tlf">
+                            <div class="class text-danger" *ngIf="carreraForm.get('fecha')?.hasError('required') && carreraForm.get('fecha')?.touched">
+                                <span>La Fecha es <strong>obligaria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label >N&uacute;mero de Corredores</label>
+                            <input type="text" formControlName="numCorredores" class="form-control" id="numCorredores">
+                        </div>
+                        <div class="mb-3">
+                            <label >N&uacute;mero de Organizadores</label>
+                            <input type="text" formControlName="numOrganizadores" class="form-control" id="numOrganizadores">
+                            <div class="class text-danger" *ngIf="carreraForm.get('numOrganizadores')?.hasError('required') && carreraForm.get('numOrganizadores')?.touched">
+                                <span>El N&uacute;mero de ORganizadores es <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="carreraForm.invalid">Crear</button>
+                            <button routerLink="" type="submit" class="btn btn-secondary btn-lg float-start" >Volver</button>
+                        </div>
+                    </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
