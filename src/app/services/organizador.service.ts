@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class OrganizadorService {
 
-  url = `${process.env['URL_BACK']}/api/carreras/`;
+  url = `${window.process.env['URL_BACK']}/api/carreras/`;
 
 
   constructor(private http: HttpClient) { }

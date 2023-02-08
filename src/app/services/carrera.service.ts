@@ -10,7 +10,7 @@ import { Carrera } from 'src/app/models/carrera';
 
 export class CarreraService {
 
-  url = `${process.env['URL_BACK']}/api/carreras/`;
+  url = `${window.process.env['URL_BACK']}/api/carreras/`;
 
   constructor(private http: HttpClient) { }
 

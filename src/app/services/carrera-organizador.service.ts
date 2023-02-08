@@ -9,8 +9,8 @@ import { OrganizadorCarrera } from '../models/organizadorCarrera';
 })
 
 export class OrganizadorCarreraService {
-
-  url = `${process.env['URL_BACK']}/api/carreras/`;
+  
+  url = `${window.process.env['URL_BACK']}/api/carreras/`;
 
   constructor(private http: HttpClient) { }
 
