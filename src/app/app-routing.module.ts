@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'crear-carrera', component: CrearCarreraComponent},
   { path: 'editar-carrera/:id', component: CrearCarreraComponent},
   { path: 'listar-organizador/:id', component: ListarOrganizadorComponent},
+  { path: 'listar-organizador', component: ListarOrganizadorComponent},
   { path: 'anadir-organizador/:id', component: AnadirOrganizadorComponent},
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

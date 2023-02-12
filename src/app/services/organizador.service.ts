@@ -11,12 +11,16 @@ export class OrganizadorService {
 
   constructor(private http: HttpClient) { }
 
+  getOrganizadores(): Observable<any>{
+    return this.http.get(url + 'organizador');
+  }
+
   getOrganizadoresCarrera(id:string): Observable<any>{
-    return this.http.get(url + 'organizadores/' + id);
+    return this.http.get(url + 'carreras/organizadores/' + id);
   }
 
   getOrganizadoresSinAsignar(id:string): Observable<any>{
-    return this.http.get(url + 'organizadores/sin/' + id);
+    return this.http.get(url + 'carreras/organizadores/sin/' + id);
   }
 
 }

@@ -13,7 +13,9 @@ import { OrganizadorService } from 'src/app/services/organizador.service';
 })
 export class ListarOrganizadorComponent {
 
+  general: boolean | null;
   id: string | null;
+  titulo: string |null;
   orgCarrera: OrganizadorCarrera | null;
 
   listOrganizadores: Organizador[] = []; 
@@ -25,13 +27,29 @@ export class ListarOrganizadorComponent {
 
       this.id = this.aRoute.snapshot.paramMap.get('id');
       this.orgCarrera = new OrganizadorCarrera("","");
+      this.general=false;
+      this.titulo = "Lista de Organizadores";
   }
 
   ngOnInit(): void {
-    this.getOrganizadores();
+    if(this.id!=null){
+        this.getOrganizadoresConId();
+        this.titulo="Organizadores apuntados";
+    }else{
+      this.getOrganizadores();
+      this.general=true;
+    }
   }
 
   getOrganizadores() {
+      this._organizadorService.getOrganizadores().subscribe(data => {
+        this.listOrganizadores= data;
+      }, error => {
+        console.log(error);
+      })
+  }
+
+  getOrganizadoresConId() {
     if(this.id!=null){
       this._organizadorService.getOrganizadoresCarrera(this.id).subscribe(data => {
         this.listOrganizadores= data;
@@ -49,7 +67,7 @@ export class ListarOrganizadorComponent {
     this._organizadorCarreraService.deleteOrganizadorCarrera(this.orgCarrera).subscribe(data => {
 
       this.toastr.warning('La carrera fue eliminada con éxito','Carrera Eliminada');
-      this.getOrganizadores();
+      this.getOrganizadoresConId();
     }, error => {
       this.toastr.error('No se ha podido eliminar la carrera','Error');
       console.log(error);

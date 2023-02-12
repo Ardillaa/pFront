@@ -14,10 +14,10 @@ export class OrganizadorCarreraService {
   constructor(private http: HttpClient) { }
 
   createOrganizadorCarrera(organizadorCarrera: OrganizadorCarrera[]): Observable<any>{
-    return this.http.post(url+'addOrganizadores/', organizadorCarrera);
+    return this.http.post(url+'carreras/addOrganizadores/', organizadorCarrera);
   }
 
   deleteOrganizadorCarrera(organizadorCarrera: OrganizadorCarrera): Observable<any>{
-    return this.http.post(url+'del/OrgCarrera/', organizadorCarrera);
+    return this.http.post(url+'carreras/del/OrgCarrera/', organizadorCarrera);
   }
 }
