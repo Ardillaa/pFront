@@ -13,7 +13,7 @@ import { CarreraService } from 'src/app/services/carrera.service';
 export class CrearCarreraComponent {
 
     carreraForm: FormGroup;
-    titulo = "Crear Usuario";
+    titulo = "Nueva Carrera";
     id: string | null;
   
     constructor(private fb: FormBuilder, 

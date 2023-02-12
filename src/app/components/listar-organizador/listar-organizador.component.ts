@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Organizador } from 'src/app/models/organizador';
 import { OrganizadorCarrera } from 'src/app/models/organizadorCarrera';
 import { OrganizadorCarreraService } from 'src/app/services/carrera-organizador.service';
+import { CarreraService } from 'src/app/services/carrera.service';
 import { OrganizadorService } from 'src/app/services/organizador.service';
 
 @Component({
@@ -17,22 +18,26 @@ export class ListarOrganizadorComponent {
   id: string | null;
   titulo: string |null;
   orgCarrera: OrganizadorCarrera | null;
+  carrera: string | null;
 
   listOrganizadores: Organizador[] = []; 
 
   constructor(private _organizadorService: OrganizadorService,
               private toastr: ToastrService,
               private aRoute: ActivatedRoute,
-              private _organizadorCarreraService: OrganizadorCarreraService){ 
+              private _organizadorCarreraService: OrganizadorCarreraService,
+              private _carreraService: CarreraService){ 
 
       this.id = this.aRoute.snapshot.paramMap.get('id');
       this.orgCarrera = new OrganizadorCarrera("","");
       this.general=false;
       this.titulo = "Lista de Organizadores";
+      this.carrera = "";
   }
 
   ngOnInit(): void {
     if(this.id!=null){
+        this.getNombreCarrera();
         this.getOrganizadoresConId();
         this.titulo="Organizadores apuntados";
     }else{
@@ -47,6 +52,16 @@ export class ListarOrganizadorComponent {
       }, error => {
         console.log(error);
       })
+  }
+
+  getNombreCarrera() {
+    if(this.id!=null){
+      this._carreraService.getCarrera(this.id).subscribe(data => {
+        this.carrera= data.nombre;
+      }, error => {
+        console.log(error);
+      })
+    }
   }
 
   getOrganizadoresConId() {

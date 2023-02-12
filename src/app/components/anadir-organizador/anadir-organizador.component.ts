@@ -6,7 +6,9 @@ import { Asignar } from 'src/app/models/asignar';
 import { Organizador } from 'src/app/models/organizador';
 import { OrganizadorCarrera } from 'src/app/models/organizadorCarrera';
 import { OrganizadorCarreraService } from 'src/app/services/carrera-organizador.service';
+import { CarreraService } from 'src/app/services/carrera.service';
 import { OrganizadorService } from 'src/app/services/organizador.service';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ export class AnadirOrganizadorComponent {
   id: string | null;
   organizadoresForm: FormGroup;
   nuevo: Asignar| null;
+  carrera: string| null;
 
   listOrganizadores: Organizador[] = [];
   listOrganizadoresCheck: Asignar[] =[];
@@ -28,17 +31,20 @@ export class AnadirOrganizadorComponent {
               private _organizadorCarreraService: OrganizadorCarreraService,
               private toastr: ToastrService,
               private router: Router,
-              private aRoute: ActivatedRoute){ 
+              private aRoute: ActivatedRoute,
+              private _carreraService: CarreraService){ 
 
     this.organizadoresForm = this.fb.group({
       asignado: ['']
     });
     this.nuevo = new Asignar('',false);
     this.id = this.aRoute.snapshot.paramMap.get('id');
+    this.carrera="";
     }
 
 ngOnInit(): void {
   this.getOrganizadores();
+  this.getNombreCarrera();
 }
 
 getOrganizadores() {
@@ -79,6 +85,15 @@ anadirOrganizadores(){
   } );
 }
 
+getNombreCarrera() {
+  if(this.id!=null){
+    this._carreraService.getCarrera(this.id).subscribe(data => {
+      this.carrera= data.nombre;
+    }, error => {
+      console.log(error);
+    })
+  }
+}
 
 onCheckboxChange(e: any) {
   this.listOrganizadoresCheck.forEach(element => {

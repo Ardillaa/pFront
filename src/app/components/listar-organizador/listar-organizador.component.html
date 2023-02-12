@@ -1,8 +1,16 @@
-<div class="container mt-5">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 ">
+      <div class="card head"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <div class="card-body text-center">
+                    <h3 class="titulo">{{carrera}}</h3>
                     <span class="titulo">{{titulo}}</span>
                     <button *ngIf="general==false" class="btn btn-success float-end" routerLink='/anadir-organizador/{{id}}'>Añadir</button>
                     <button *ngIf="general==true" class="btn btn-success float-end" >Crear</button>
