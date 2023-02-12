@@ -42,3 +42,5 @@ testem.log
 Thumbs.db
 
 .vercel
+
+src/app/utils/constants.ts

@@ -16,4 +16,8 @@ export class OrganizadorCarreraService {
   createOrganizadorCarrera(organizadorCarrera: OrganizadorCarrera[]): Observable<any>{
     return this.http.post(url+'addOrganizadores/', organizadorCarrera);
   }
+
+  deleteOrganizadorCarrera(organizadorCarrera: OrganizadorCarrera): Observable<any>{
+    return this.http.post(url+'del/OrgCarrera/', organizadorCarrera);
+  }
 }
