@@ -13,7 +13,7 @@
                     <h3 class="titulo">{{carrera}}</h3>
                     <span class="titulo">{{titulo}}</span>
                     <button *ngIf="general==false" class="btn btn-success float-end" routerLink='/anadir-organizador/{{id}}'>Añadir</button>
-                    <button *ngIf="general==true" class="btn btn-success float-end" >Crear</button>
+                    <button *ngIf="general==true" class="btn btn-success float-end" routerLink='/crear-organizador'>Crear</button>
                     <table *ngIf="listOrganizadores.length >0" class="table table-striped table-hover">
                         <thead>
                           <tr>
@@ -33,7 +33,7 @@
                             <td>{{organizador.telefono}}</td>
                             <td>{{organizador.vehiculo}}</td>
                             <td>
-                                <i *ngIf="general==true" [routerLink]="['/editar-carrera']" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                                <i *ngIf="general==true" [routerLink]="['/editar-organizador',organizador._id]" class="fas fa-solid fa-pen-to-square text-primary"></i>
                                 <i (click)="deleteOrganizador(organizador._id,id)" class="fas fa-solid fa-trash text-danger"></i>
                             </td>
                           </tr>

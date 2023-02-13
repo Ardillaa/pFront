@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 ">
+        <div class="card head"></div>
+      </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <span class="titulo">{{titulo | uppercase}}</span>
+                    </div>
+                    <form class="mt-3" [formGroup]="organizadorForm" (ngSubmit)="crearOrganizador()" >
+                        <div class="mb-3">
+                            <label>Nombre</label>
+                            <input type="text" formControlName="nombre" class="form-control" id="nombre">
+                            <div class="class text-danger" *ngIf="organizadorForm.get('nombre')?.hasError('required') && organizadorForm.get('nombre')?.touched">
+                                <span>El nombre es <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Apellidos</label>
+                            <input type="text" formControlName="apellidos" class="form-control" id="apellidos">
+                            <div class="class text-danger" *ngIf="organizadorForm.get('apellidos')?.hasError('required') && organizadorForm.get('apellidos')?.touched">
+                                <span>Los Apellidos son <strong>obligarios</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>DNI</label>
+                            <input type="text" formControlName="dni" class="form-control" id="dni">
+                        </div>
+                        <div class="mb-3">
+                            <label >Ciudad</label>
+                            <input type="text" formControlName="ciudad" class="form-control" id="ciudad">
+                            <div class="class text-danger" *ngIf="organizadorForm.get('ciudad')?.hasError('required') && organizadorForm.get('ciudad')?.touched">
+                                <span>La ciudad es <strong>obligaria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label >Tel&eacute;fono</label>
+                            <input type="text" formControlName="telefono" class="form-control" id="telefono">
+                            <div class="class text-danger" *ngIf="organizadorForm.get('telefono')?.hasError('required') && organizadorForm.get('telefono')?.touched">
+                                <span>El Tel&eacute;fono es <strong>obligario</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label >Edad</label>
+                            <input type="text" formControlName="edad" class="form-control" id="edad">
+                        </div>
+                        <div class="mb-3">
+                            <label >Veh&iacute;culo</label>
+                            <input type="text" formControlName="vehiculo" class="form-control" id="vehiculo">
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="organizadorForm.invalid">{{tituloBoton}}</button>
+                            <button routerLink="/listar-organizador" type="submit" class="btn btn-secondary btn-lg float-start" >Volver</button>
+                        </div>
+                    </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

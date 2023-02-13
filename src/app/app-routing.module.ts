@@ -6,6 +6,7 @@ import { ListarCarreraComponent } from './components/listar-carrera/listar-carre
 import { CrearCarreraComponent } from './components/crear-carrera/crear-carrera.component';
 import { ListarOrganizadorComponent } from './components/listar-organizador/listar-organizador.component';
 import { AnadirOrganizadorComponent } from './components/anadir-organizador/anadir-organizador.component';
+import { CrearOrganizadorComponent } from './components/crear-organizador/crear-organizador.component';
 
 const routes: Routes = [
   { path: 'usuarios', component: ListarUsuarioComponent },
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'listar-organizador/:id', component: ListarOrganizadorComponent},
   { path: 'listar-organizador', component: ListarOrganizadorComponent},
   { path: 'anadir-organizador/:id', component: AnadirOrganizadorComponent},
+  { path: 'crear-organizador', component: CrearOrganizadorComponent},
+  { path: 'editar-organizador/:id', component: CrearOrganizadorComponent},
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

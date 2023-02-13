@@ -76,17 +76,31 @@ export class ListarOrganizadorComponent {
 
   deleteOrganizador(org_id: any, id:any){
     
-    this.orgCarrera = new OrganizadorCarrera(id, org_id);
-    console.log(this.orgCarrera);
+    if(id!=null){
+      this.orgCarrera = new OrganizadorCarrera(id, org_id);
+      console.log(this.orgCarrera);
 
-    this._organizadorCarreraService.deleteOrganizadorCarrera(this.orgCarrera).subscribe(data => {
+      this._organizadorCarreraService.deleteOrganizadorCarrera(this.orgCarrera).subscribe(data => {
 
-      this.toastr.warning('La carrera fue eliminada con éxito','Carrera Eliminada');
-      this.getOrganizadoresConId();
-    }, error => {
-      this.toastr.error('No se ha podido eliminar la carrera','Error');
-      console.log(error);
-    })
+        this.toastr.warning('El organizador fue eliminada con éxito','Organizador Eliminado');
+        this.getOrganizadoresConId();
+      }, error => {
+        this.toastr.error('No se ha podido eliminar el organizador','Error');
+        console.log(error);
+      })
+    }
+    else{
+      console.log("lista org");
+      this._organizadorService.deleteOrganizador(org_id).subscribe(data => {
+
+        this.toastr.warning('El organizador fue eliminada con éxito','Organizador Eliminado');
+        this.getOrganizadores();
+      }, error => {
+        this.toastr.error('No se ha podido eliminar el organizador','Error');
+        console.log(error);
+      })
+    }
+    
   }
 
 }

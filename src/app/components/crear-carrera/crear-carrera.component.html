@@ -47,11 +47,11 @@
                             <label >N&uacute;mero de Organizadores</label>
                             <input type="text" formControlName="numOrganizadores" class="form-control" id="numOrganizadores">
                             <div class="class text-danger" *ngIf="carreraForm.get('numOrganizadores')?.hasError('required') && carreraForm.get('numOrganizadores')?.touched">
-                                <span>El N&uacute;mero de ORganizadores es <strong>obligario</strong></span>
+                                <span>El N&uacute;mero de Organizadores es <strong>obligario</strong></span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="carreraForm.invalid">Crear</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="carreraForm.invalid">{{tituloBoton}}</button>
                             <button routerLink="" type="submit" class="btn btn-secondary btn-lg float-start" >Volver</button>
                         </div>
                     </form>

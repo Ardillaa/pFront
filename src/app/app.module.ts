@@ -14,6 +14,7 @@ import { ListarCarreraComponent } from './components/listar-carrera/listar-carre
 import { CrearCarreraComponent } from './components/crear-carrera/crear-carrera.component';
 import { ListarOrganizadorComponent } from './components/listar-organizador/listar-organizador.component';
 import { AnadirOrganizadorComponent } from './components/anadir-organizador/anadir-organizador.component';
+import { CrearOrganizadorComponent } from './components/crear-organizador/crear-organizador.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AnadirOrganizadorComponent } from './components/anadir-organizador/anad
     ListarCarreraComponent,
     CrearCarreraComponent,
     ListarOrganizadorComponent,
-    AnadirOrganizadorComponent
+    AnadirOrganizadorComponent,
+    CrearOrganizadorComponent
   ],
   imports: [
     BrowserModule,

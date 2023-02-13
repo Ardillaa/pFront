@@ -15,6 +15,7 @@ export class CrearCarreraComponent {
     carreraForm: FormGroup;
     titulo = "Nueva Carrera";
     id: string | null;
+    tituloBoton="Crear";
   
     constructor(private fb: FormBuilder, 
                 private router: Router,
@@ -54,11 +55,11 @@ export class CrearCarreraComponent {
       if(this.id !==null){
       
         this._carreraService.editCarrera(this.id, CARRERA).subscribe( data => {
-          this.toastr.success('El usuario se ha actualizado correctamente', 'Usuario Actualizado');
+          this.toastr.success('La Carrera se ha actualizado correctamente', 'Carrera Actualizada');
           this.router.navigate(['/']);
   
         }, error =>{
-          this.toastr.error('No se ha podido actualizar el usuario','Error');
+          this.toastr.error('No se ha podido actualizar la Carrera','Error');
           this.carreraForm.reset();
           console.log(error);
         } )
@@ -66,11 +67,11 @@ export class CrearCarreraComponent {
       }else{
         this._carreraService.createCarrera(CARRERA).subscribe(data => {
             
-            this.toastr.success('El usuario se ha añadido correctamente', 'Usuario Creado');
+            this.toastr.success('La Carrera se ha añadido correctamente', 'Carrera Creado');
             this.router.navigate(['/']);
   
           }, error =>{
-            this.toastr.error('No se ha podido crear el usuario','Error');
+            this.toastr.error('No se ha podido crear la Carrera','Error');
             this.carreraForm.reset();
             console.log(error);
           } )
@@ -80,6 +81,7 @@ export class CrearCarreraComponent {
     isEditar() {
       if(this.id !==null){
         this.titulo = 'Editar Carrera';
+        this.tituloBoton='Editar';
         this._carreraService.getCarrera(this.id).subscribe(data => {
           this.carreraForm.setValue({
             nombre: data.nombre,

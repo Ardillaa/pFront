@@ -5,3 +5,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.fas{
+    cursor: pointer;
+    margin-left: 7px;
+}
+
+.btn{
+    margin-right: 2%;
+}
