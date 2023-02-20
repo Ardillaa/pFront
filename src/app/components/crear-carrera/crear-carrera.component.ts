@@ -16,7 +16,8 @@ export class CrearCarreraComponent {
     titulo = "Nueva Carrera";
     id: string | null;
     tituloBoton="Crear";
-  
+    pr: Date | null;
+
     constructor(private fb: FormBuilder, 
                 private router: Router,
                 private toastr: ToastrService,
@@ -33,6 +34,7 @@ export class CrearCarreraComponent {
       });
  
       this.id = this.aRoute.snapshot.paramMap.get('id');
+      this.pr = new Date();
     }
   
     ngOnInit(): void {
@@ -83,18 +85,37 @@ export class CrearCarreraComponent {
         this.titulo = 'Editar Carrera';
         this.tituloBoton='Editar';
         this._carreraService.getCarrera(this.id).subscribe(data => {
+          this.pr = new Date(data.fecha);
+          console.log(this.formatearDate(data.fecha));
           this.carreraForm.setValue({
             nombre: data.nombre,
             ciudad: data.ciudad,
-            fecha: data.fecha,
+            fecha: this.formatearDate(data.fecha),
             cinicio: data.cinicio,
             numCorredores: data.numCorredores,
             numOrganizadores: data.numOrganizadores
-          })
-  
+          });
+         
         });
       }
     }
-  
+
+    formatearDate(fecha : string){
+      console.log("formateo");
+      const fechaDate = new Date(fecha);
+      fechaDate.getFullYear()+'-0'+(fechaDate.getMonth()+1)+'-'+fechaDate.getDate();
+      let mes= fechaDate.getMonth()+1;
+      let resultado = '';
+      if(mes<10){
+        resultado = fechaDate.getFullYear()+'-0'+(fechaDate.getMonth()+1)+'-'+fechaDate.getDate();
+      }else{
+
+         resultado = fechaDate.getFullYear()+'-'+(fechaDate.getMonth()+1)+'-'+fechaDate.getDate();
+      }
+      
+      return resultado;
+
+
+    }
 
 }

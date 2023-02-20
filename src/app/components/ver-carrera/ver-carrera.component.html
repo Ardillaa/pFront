@@ -1,0 +1,54 @@
+<div>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8 offset-lg-2 ">
+            <div class="card head"></div>
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="impr">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="titulo">{{carrera}}</h3>
+                            <div class="d-inline p-2">
+                                <p><label>Ciudad: </label>{{ciudad}}</p>
+                                <p><label>Lugar de Inicio: </label>{{cinicio}}</p>
+                            </div>
+                            <div class="d-inline p-2">
+                                <p><label>Fecha: </label>{{fecha | date :  "dd/MM/yyyy"}}</p>
+                                <p><label>N&uacute;mero de Corredores: </label>{{corredores}}</p>
+                            </div>
+                        <table *ngIf="listOrganizadores.length >0" class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col">T&eacute;lefono</th>
+                                <th scope="col">Vehiculo propio</th>
+                                <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let organizador of listOrganizadores">
+                                <td>{{organizador.nombre}}</td>
+                                <td>{{organizador.apellidos}}</td>
+                                <td>{{organizador.dni}}</td>
+                                <td>{{organizador.telefono}}</td>
+                                <td>{{organizador.vehiculo}}</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <h5 *ngIf="listOrganizadores.length == 0" style="text-align: start; margin-top: 10px;">No hay organizadores</h5>
+                            <div class="mb-3">
+                            <button routerLink="" type="submit" class="btn btn-secondary btn-lg float-start" >Volver</button>
+                            <button class="btn btn-secondary btn-lg float-end" type="submit" (click)="pdf()">Descargar</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

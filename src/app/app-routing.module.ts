@@ -7,6 +7,7 @@ import { CrearCarreraComponent } from './components/crear-carrera/crear-carrera.
 import { ListarOrganizadorComponent } from './components/listar-organizador/listar-organizador.component';
 import { AnadirOrganizadorComponent } from './components/anadir-organizador/anadir-organizador.component';
 import { CrearOrganizadorComponent } from './components/crear-organizador/crear-organizador.component';
+import { VerCarreraComponent } from './components/ver-carrera/ver-carrera.component';
 
 const routes: Routes = [
   { path: 'usuarios', component: ListarUsuarioComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: '', component: ListarCarreraComponent},
   { path: 'crear-carrera', component: CrearCarreraComponent},
   { path: 'editar-carrera/:id', component: CrearCarreraComponent},
+  { path: 'ver-carrera/:id', component: VerCarreraComponent},
   { path: 'listar-organizador/:id', component: ListarOrganizadorComponent},
   { path: 'listar-organizador', component: ListarOrganizadorComponent},
   { path: 'anadir-organizador/:id', component: AnadirOrganizadorComponent},
