@@ -13,7 +13,7 @@ import { OrganizadorService } from 'src/app/services/organizador.service';
 export class CrearOrganizadorComponent {
 
   organizadorForm: FormGroup;
-  titulo = "Nueva Carrera";
+  titulo = "Nueva Organizador";
   id: string | null;
   tituloBoton = "Crear";
 
