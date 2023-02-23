@@ -28,10 +28,10 @@
                             <td>{{carrera.nombre}}</td>
                             <td>{{carrera.ciudad}}</td>
                             <td>{{carrera.fecha  | date:'longDate'}}</td>
-                            <td><i [routerLink]="['/ver-carrera',carrera._id]" class="fas fa-sharp fa-solid fa-eye"></i>
-                                <i [routerLink]="['/listar-organizador',carrera._id]" class="fas fa-sharp fa-solid fa-users"></i>
-                                <i [routerLink]="['/editar-carrera',carrera._id]" class="fas fa-solid fa-pen-to-square text-primary"></i>
-                                <i (click)="deleteCarrera(carrera._id)" class="fas fa-solid fa-trash text-danger"></i>
+                            <td><i [routerLink]="['/ver-carrera',carrera._id]" class="fas fa-sharp fa-solid fa-eye" title="Ver Carrera"></i>
+                                <i [routerLink]="['/listar-organizador',carrera._id]" class="fas fa-sharp fa-solid fa-users" title="Organizadores"></i>
+                                <i [routerLink]="['/editar-carrera',carrera._id]" class="fas fa-solid fa-pen-to-square text-primary" title="Editar Carrera"></i>
+                                <i (click)="deleteCarrera(carrera._id)" class="fas fa-solid fa-trash text-danger" title="Eliminar Carrera"></i>
                             </td>
                           </tr>
                         </tbody>

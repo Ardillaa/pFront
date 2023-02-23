@@ -8,8 +8,6 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
-import { ListarUsuarioComponent } from './components/listar-usuario/listar-usuario.component';
 import { ListarCarreraComponent } from './components/listar-carrera/listar-carrera.component';
 import { CrearCarreraComponent } from './components/crear-carrera/crear-carrera.component';
 import { ListarOrganizadorComponent } from './components/listar-organizador/listar-organizador.component';
@@ -20,15 +18,13 @@ import { VerCarreraComponent } from './components/ver-carrera/ver-carrera.compon
 @NgModule({
   declarations: [
     AppComponent,
-    CrearUsuarioComponent,
-    ListarUsuarioComponent,
     ListarCarreraComponent,
     CrearCarreraComponent,
     ListarOrganizadorComponent,
     AnadirOrganizadorComponent,
     CrearOrganizadorComponent,
     VerCarreraComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -11,7 +11,6 @@ import { url } from '../utils/constants';
 
 export class CarreraService {
 
-
   constructor(private http: HttpClient) { }
 
   getCarreras(): Observable<any>{
