@@ -104,20 +104,23 @@ onCheckboxChange(e: any) {
 }
 
 filtroDNI(evento:any) {
-  // Declare variables
-  var h, filter, table, tr, td, i, txtValue;
-  console.log(evento.target.value);
-  filter = evento.target.value.toUpperCase();
-  table = document.getElementById("tablaOrganizadores");
-  if(table!=null){
-    tr = table.getElementsByTagName("tr");
+  var  valorFiltro, tabla, tr, td, i, valorTexto;
+  valorFiltro = evento.target.value.toUpperCase();
+
+  //Obtenemos la tabla
+  tabla = document.getElementById("tablaOrganizadores");
+  if(tabla!=null){
+    //Obtenemos el array de filas
+    tr = tabla.getElementsByTagName("tr");
     
-    // Loop through all table rows, and hide those who don't match the search query
+    //para cada fila obtenemos la columna 3 (dni) 
+    // con un indexof buscamos el valor introducido en los distintos valores,
+    // para habilitarlo o deshabilitar esa fila mediante el estilo display.
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[2];
         if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          valorTexto = td.textContent || td.innerText;
+          if (valorTexto.toUpperCase().indexOf(valorFiltro) > -1) {
             tr[i].style.display = "";
           } else {
             tr[i].style.display = "none";
